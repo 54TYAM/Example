@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .calculator-container {
+            max-width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-container:hover{
+            transform: scale(1.2);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h2>Carbon Footprint Calculator</h2>
+        <form id="carbonForm">
+            <label for="transportation">Transportation (miles per week):</label>
+            <input type="number" id="transportation" required>
+
+            <label for="energy">Energy usage (kWh per month):</label>
+            <input type="number" id="energy" required>
+
+            <label for="lifestyle">Lifestyle choices (carbon-intensive activities):</label>
+            <input type="number" id="lifestyle" required>
+
+            <button type="button" onclick="calculateFootprint()">Calculate</button>
+        </form>
+
+        <h3>Carbon Footprint: <span id="result">0</span> tons CO2/year</h3>
+    </div>
+
+    <script>
+        function calculateFootprint() {
+            const transportation = parseFloat(document.getElementById('transportation').value) || 0;
+            const energy = parseFloat(document.getElementById('energy').value) || 0;
+            const lifestyle = parseFloat(document.getElementById('lifestyle').value) || 0;
+
+            // You can customize the weights based on the impact of each category
+            const transportationWeight = 0.5;
+            const energyWeight = 0.3;
+            const lifestyleWeight = 0.2;
+
+            const totalFootprint = (transportation * transportationWeight) +
+                                  (energy * energyWeight) +
+                                  (lifestyle * lifestyleWeight);
+
+            // Assume 1 ton CO2 = 2204.62 pounds CO2
+            const footprintInTons = totalFootprint / 2204.62;
+
+            document.getElementById('result').textContent = footprintInTons.toFixed(2);
+        }
+    </script>
+</body>
+</html>

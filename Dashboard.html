@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Attendance Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="attendance.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+</head>
+<body>
+    <h1>Class Attendance Dashboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Student Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>John Doe</td>
+                <td>
+                    <button class="present" onclick="markAttendance(this, 'Present')">Present</button>
+                    <button class="absent" onclick="markAttendance(this, 'Absent')">Absent</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jane Smith</td>
+                <td>
+                    <button class="present" onclick="markAttendance(this, 'Present')">Present</button>
+                    <button class="absent" onclick="markAttendance(this, 'Absent')">Absent</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Sam Wilson</td>
+                <td>
+                    <button class="present" onclick="markAttendance(this, 'Present')">Present</button>
+                    <button class="absent" onclick="markAttendance(this, 'Absent')">Absent</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function markAttendance(button, status) {
+            const parentCell = button.parentNode;
+            parentCell.innerHTML = `<span class="${status.toLowerCase()}">${status}</span>`;
+        }
+    </script>
+</body>
+</html>

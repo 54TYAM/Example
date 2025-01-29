@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header-Main-Footer Layout</title>
+    <style>
+        .container{
+            display: grid;
+            background-color: rgb(75, 75, 192);
+            grid-template-rows: 50px 1fr 50px;
+            grid-template-columns: 100px 100px;
+            grid-template-areas: "header header"
+            "sidebar main"
+            "footer footer";
+            height: 100vh;
+            gap: 10px;
+        }
+        .Header{
+            display: flex;
+            grid-area: header;
+            color: bisque;
+            background-color: black;
+            justify-content: center;
+            align-items: center;
+        }
+        .Sidebar{
+            display: flex;
+            grid-area: sidebar;
+            color: bisque;
+            background-color: rgb(0, 0, 0);
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+            display: flex;
+            grid-area: main;
+            color: bisque;
+            background-color: rgb(174, 128, 216);
+            justify-content: center;
+            align-items: center;
+        }
+        .footer{
+            display: flex;
+            grid-area: footer;
+            color: white;
+            background-color: yellowgreen;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="Header">Header</div>
+        <div class="Sidebar">Sidebar</div>
+        <div class="main">Main</div>
+        <div clss="footer">Footer</div>
+    </div>
+</body>
+</html>
